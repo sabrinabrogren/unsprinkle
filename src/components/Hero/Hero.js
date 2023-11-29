@@ -14,7 +14,7 @@ const Hero = () => {
           "
         />
         <source
-          type="image/avif"
+          type="image/jpg"
           srcSet="
             /images/hero-img.jpg 1x,
             /images/hero-img@2x.jpg 2x,
