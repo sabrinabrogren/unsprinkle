@@ -11,18 +11,22 @@ const PhotoGridItem = ({ id, src, alt, tags }) => {
         <picture>
           <source
             type="image/avif"
-            srcset={avifSrcSet}
+            srcSet={avifSrcSet}
           />
           <source
             type="image/avif"
-            srcset={jpgSrcSet}
+            srcSet={jpgSrcSet}
           />
           <Image src={src} alt={alt} />
         </picture>
       </Anchor>
       <Tags>
         {tags.map((tag) => (
-          <Tag key={tag}>{tag}</Tag>
+          <Tag key={tag}>
+            {/* <TagContent> */}
+              {tag}
+              {/* </TagContent> */}
+              </Tag>
         ))}
       </Tags>
     </article>
@@ -45,17 +49,25 @@ const Image = styled.img`
 `;
 
 const Tags = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  white-space: nowrap;
+  overflow: hidden;
 `;
 
 const Tag = styled.li`
+  display: inline-box;
+  overflow: hidden;
   padding: 4px 8px;
   background: var(--color-gray-300);
   font-size: 0.875rem;
   font-weight: 475;
   color: var(--color-gray-800);
+  :not(:last-child) {
+    margin-right: 8px;
+  }
+`;
+
+const TagContent = styled.span`
+  text-overflow: ellipses;
 `;
 
 export default PhotoGridItem;
